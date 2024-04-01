@@ -82,7 +82,25 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void goDiv(View view) {
-
+        st = eT.getText().toString();
+        if (!st.isEmpty()) {
+            if (!isNum1Set) {
+                num1 = Double.parseDouble(st);
+                eT.setText("");
+                eT.setHint("Enter second number: ");
+                isNum1Set = true;
+            } else {
+                num2 = Double.parseDouble(st);
+                if (num2 != 0) {
+                    ans = num1 / num2;
+                    eT.setText(String.valueOf(ans));
+                } else {
+                    Toast.makeText(this, "Cannot divide by zero", Toast.LENGTH_SHORT).show();
+                }
+                isNum1Set = false;
+            }
+        } else
+            Toast.makeText(this, "Please enter a number", Toast.LENGTH_SHORT).show();
     }
 
     public void reset(View view) {
