@@ -46,6 +46,21 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void goMinos(View view) {
+        st = eT.getText().toString();
+        if (!st.isEmpty()) {
+            if (!isNum1Set) {
+                num1 = Double.parseDouble(st);
+                eT.setText("");
+                eT.setHint("Enter second number: ");
+                isNum1Set = true;
+            } else {
+                num2 = Double.parseDouble(st);
+                ans = num1 - num2;
+                eT.setText(String.valueOf(ans));
+                isNum1Set = false;
+            }
+        } else
+            Toast.makeText(this, "Please enter a number", Toast.LENGTH_SHORT).show();
     }
 
     public void goKefel(View view) {
