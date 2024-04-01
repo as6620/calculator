@@ -155,7 +155,7 @@ public class MainActivity extends AppCompatActivity {
 
     public void go(View view) {
         Intent si = new Intent(this, MainActivity2.class);
-
+        si.putExtra("last_answer", String.valueOf(ans));
         startActivity(si);
     }
 }
