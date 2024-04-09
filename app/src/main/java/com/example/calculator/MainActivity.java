@@ -29,17 +29,18 @@ public class MainActivity extends AppCompatActivity {
 
     public void goPlus(View view) {
         st = eT.getText().toString();
-        if (!st.isEmpty()){
+        if (!st.isEmpty() && (!st.equals("."))) {
             if (!isNum1Set) {
                 act = "+";
                 num1 = Double.parseDouble(st);
                 eT.setText("");
-                eT.setHint("Enter second number: ");
+                eT.setHint(""+num1);
                 isNum1Set = true;
             } else {
                 num2 = Double.parseDouble(st);
                 ans = num1 + num2;
-                eT.setText(String.valueOf(ans));
+                eT.setText("");
+                eT.setHint(String.valueOf(ans));
                 isNum1Set = false;
             }
         }
@@ -49,7 +50,7 @@ public class MainActivity extends AppCompatActivity {
 
     public void goMinos(View view) {
         st = eT.getText().toString();
-        if (!st.isEmpty()) {
+        if (!st.isEmpty() && (!st.equals("."))) {
             if (!isNum1Set) {
                 act = "-";
                 num1 = Double.parseDouble(st);
@@ -68,7 +69,7 @@ public class MainActivity extends AppCompatActivity {
 
     public void goKefel(View view) {
         st = eT.getText().toString();
-        if (!st.isEmpty()) {
+        if (!st.isEmpty() && (!st.equals("."))) {
             if (!isNum1Set) {
                 act = "*";
                 num1 = Double.parseDouble(st);
@@ -87,12 +88,12 @@ public class MainActivity extends AppCompatActivity {
 
     public void goDiv(View view) {
         st = eT.getText().toString();
-        if (!st.isEmpty()) {
+        if (!st.isEmpty() && (!st.equals("."))) {
             if (!isNum1Set) {
                 act = "/";
                 num1 = Double.parseDouble(st);
                 eT.setText("");
-                eT.setHint("Enter second number: ");
+                eT.setHint("" + ans);
                 isNum1Set = true;
             } else {
                 num2 = Double.parseDouble(st);
@@ -118,7 +119,7 @@ public class MainActivity extends AppCompatActivity {
 
     public void goEq(View view) {
         st = eT.getText().toString();
-        if (!st.isEmpty()) {
+        if (!st.isEmpty() && (!st.equals("."))) {
             if (!isNum1Set) {
                 num1 = Double.parseDouble(st);
                 eT.setText("");
@@ -155,7 +156,7 @@ public class MainActivity extends AppCompatActivity {
 
     public void go(View view) {
         Intent si = new Intent(this, MainActivity2.class);
-        si.putExtra("last_answer", String.valueOf(ans));
+        si.putExtra("last_answer",ans);
         startActivity(si);
     }
 }
